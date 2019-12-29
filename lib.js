@@ -12,16 +12,16 @@ function * compute (start, next, take) {
   }
 }
 
-function startingFrom (s) {
+function from (s) {
   return {
     take (t) {
       return {
-        asNextIs (f) {
+        next (f) {
           return compute(s, f, t)
         }
       }
     },
-    asNextIs (f) {
+    next (f) {
       return {
         take (t) {
           return compute(s, f, t)
@@ -33,16 +33,16 @@ function startingFrom (s) {
 
 function take (t) {
   return {
-    startingFrom (s) {
+    from (s) {
       return {
-        asNextIs (f) {
+        next (f) {
           return compute(s, f, t)
         }
       }
     },
-    asNextIs (f) {
+    next (f) {
       return {
-        startingFrom (s) {
+        from (s) {
           return compute(s, f, t)
         }
       }
@@ -50,16 +50,16 @@ function take (t) {
   }
 }
 
-function asNextIs (f) {
+function next (f) {
   return {
     take (t) {
       return {
-        startingFrom (s) {
+        from (s) {
           return compute(s, f, t)
         }
       }
     },
-    startingFrom (s) {
+    from (s) {
       return {
         take (t) {
           return compute(s, f, t)
@@ -70,7 +70,7 @@ function asNextIs (f) {
 }
 
 module.exports = {
-  startingFrom,
-  asNextIs,
+  from,
+  next,
   take
 }
