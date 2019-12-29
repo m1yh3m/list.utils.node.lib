@@ -10,6 +10,17 @@ npm i @m1yh3m/list.utils.node.lib
 
 ## usage
 
+### foldr
+
+```javascript
+
+> f.foldr((i, j) => i + j, 0, [1, 2, 3, 4, 5, 6])
+21
+> f.foldr((i, j) => i + j, '|', ['str', 'can', 'be', 'concatenated', 'too', 'you', 'know'])
+'strcanbeconcatenatedtooyouknow|'
+
+```
+
 ```javascript
 
 from(0).take(10).next(i => i + 1)
