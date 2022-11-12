@@ -14,10 +14,11 @@ npm i @m1yh3m/list.utils.node.lib
 
 ```javascript
 
-> f.foldr((i, j) => i + j, 0, [1, 2, 3, 4, 5, 6])
-21
-> f.foldr((i, j) => i + j, '|', ['str', 'can', 'be', 'concatenated', 'too', 'you', 'know'])
-'strcanbeconcatenatedtooyouknow|'
+f.foldr((i, j) => i + j, 0, [1, 2, 3, 4, 5, 6])
+// 21
+
+f.foldr((i, j) => i + j, '|', ['str', 'can', 'be', 'concatenated', 'too', 'you', 'know'])
+// 'strcanbeconcatenatedtooyouknow|'
 
 ```
 
@@ -34,8 +35,6 @@ take(10).next(i => i * i).from(0)
 
 .next(i => i * i).from(0).take(10)
 // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-// ... so on
 
 ```
 
@@ -74,5 +73,35 @@ for(i of l.take(10).from(-1).next(i => i * 2)) console.log(i)
 // -256
 // -512
 // undefined
+
+```
+
+```javascript
+const { from, take, next } = require("./select.js");
+
+for (const x of from(1).take(10).next(i => 2*i)) console.log(x)
+// 1
+// 2
+// 4
+// 8
+// 16
+// 32
+// 64
+// 128
+// 256
+// 512
+
+for (const x of from(0).take(10).next(i => i % 2 === 0 ? i : 2 * i)) console.log(x)
+// 0
+// 0
+// 0
+// 0
+// 0
+// 0
+// 0
+// 0
+// 0
+// 0
+
 
 ```

@@ -1,76 +1,77 @@
+/**
+ * @param start {number}
+ * @param next {(number) => number}
+ * @param take {number}
+ * @return {Generator<*, *, Generator<*, *, *>>}
+ */
 function * compute (start, next, take) {
   if (take < 2) {
-    return yield start
+    return yield start;
   }
-  let prev = start
-  let curr = start
-  yield start
+  let prev = start;
+  let curr = start;
+  yield start;
   for (let i = 0; i < take - 1; i++) {
-    curr = next(prev)
-    prev = curr
-    yield curr
+    curr = next(prev);
+    prev = curr;
+    yield curr;
   }
 }
 
 function from (s) {
   return {
-    take (t) {
+    take(t) {
       return {
-        next (f) {
-          return compute(s, f, t)
-        }
-      }
+        next(f) {
+          return compute(s, f, t);
+        },
+      };
+    }, next(f) {
+      return {
+        take(t) {
+          return compute(s, f, t);
+        },
+      };
     },
-    next (f) {
-      return {
-        take (t) {
-          return compute(s, f, t)
-        }
-      }
-    }
   }
 }
 
 function take (t) {
   return {
-    from (s) {
+    from(s) {
       return {
-        next (f) {
-          return compute(s, f, t)
-        }
-      }
+        next(f) {
+          return compute(s, f, t);
+        },
+      };
+    }, next(f) {
+      return {
+        from(s) {
+          return compute(s, f, t);
+        },
+      };
     },
-    next (f) {
-      return {
-        from (s) {
-          return compute(s, f, t)
-        }
-      }
-    }
   }
 }
 
 function next (f) {
   return {
-    take (t) {
+    take(t) {
       return {
-        from (s) {
-          return compute(s, f, t)
-        }
-      }
+        from(s) {
+          return compute(s, f, t);
+        },
+      };
+    }, from(s) {
+      return {
+        take(t) {
+          return compute(s, f, t);
+        },
+      };
     },
-    from (s) {
-      return {
-        take (t) {
-          return compute(s, f, t)
-        }
-      }
-    }
   }
 }
 
 module.exports = {
-  from,
-  next,
-  take
+  from, next, take,
 }
