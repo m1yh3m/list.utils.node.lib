@@ -1,22 +1,24 @@
 {
-  "name": "@m1yh3m/list.utils.node.lib",
-  "version": "4.0.0",
-  "description": "utilities for processing data",
-  "main": "./lib.js",
-  "scripts": {
-    "test": "jasmine"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.27.0",
-    "jasmine": "^4.5.0",
-    "prettier": "^2.7.1"
-  },
-  "standard": {
-    "env": [
-      "jasmine"
-    ]
-  }
+    "name": "@m1yh3m/list.utils.node.lib",
+    "version": "2023.10.0-v5",
+    "description": "utilities for processing data",
+    "main": "./lib.js",
+    "scripts": {
+        "test": "node_modules/.bin/jasmine"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^8.52.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "jasmine": "^5.1.0",
+        "jasmine-console-reporter": "^3.1.0",
+        "prettier": "^3.0.3"
+    },
+    "standard": {
+        "env": [
+            "jasmine"
+        ]
+    }
 }

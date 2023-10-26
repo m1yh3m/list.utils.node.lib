@@ -31,16 +31,16 @@ from(0).next(i => i + 1).take(10)
 // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 take(10).next(i => i * i).from(0)
-// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-.next(i => i * i).from(0).take(10)
+    .next(i => i * i).from(0).take(10)
 // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ```
 
 ```javascript
 
-for(i of l.next(i => i*i).take(10).from(2)) console.log(i)
+for (i of l.next(i => i * i).take(10).from(2)) console.log(i)
 // 2
 // 4
 // 16
@@ -53,7 +53,7 @@ for(i of l.next(i => i*i).take(10).from(2)) console.log(i)
 // 1.3407807929942597e+154
 // undefined
 
-for(i of l.from(-1).next(i => i * 2).take(5)) console.log(i)
+for (i of l.from(-1).next(i => i * 2).take(5)) console.log(i)
 // -1
 // -2
 // -4
@@ -61,7 +61,7 @@ for(i of l.from(-1).next(i => i * 2).take(5)) console.log(i)
 // -16
 // undefined
 
-for(i of l.take(10).from(-1).next(i => i * 2)) console.log(i)
+for (i of l.take(10).from(-1).next(i => i * 2)) console.log(i)
 // -1
 // -2
 // -4
@@ -77,9 +77,9 @@ for(i of l.take(10).from(-1).next(i => i * 2)) console.log(i)
 ```
 
 ```javascript
-const { from, take, next } = require("./select.js");
+const {from, take, next} = require("./select.js");
 
-for (const x of from(1).take(10).next(i => 2*i)) console.log(x)
+for (const x of from(1).take(10).next(i => 2 * i)) console.log(x)
 // 1
 // 2
 // 4
