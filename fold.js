@@ -1,5 +1,4 @@
 /**
- *
  * @param fn {function}
  * @param initValue {number}
  * @param list {number[]}
