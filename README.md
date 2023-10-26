@@ -40,7 +40,7 @@ take(10).next(i => i * i).from(0)
 
 ```javascript
 
-for (i of l.next(i => i * i).take(10).from(2)) console.log(i)
+for (i of l.next(prev => prev * prev).take(10).from(2)) console.log(i)
 // 2
 // 4
 // 16
@@ -53,7 +53,7 @@ for (i of l.next(i => i * i).take(10).from(2)) console.log(i)
 // 1.3407807929942597e+154
 // undefined
 
-for (i of l.from(-1).next(i => i * 2).take(5)) console.log(i)
+for (i of l.from(-1).next(prev => prev * 2).take(5)) console.log(i)
 // -1
 // -2
 // -4
@@ -61,7 +61,7 @@ for (i of l.from(-1).next(i => i * 2).take(5)) console.log(i)
 // -16
 // undefined
 
-for (i of l.take(10).from(-1).next(i => i * 2)) console.log(i)
+for (i of l.take(10).from(-1).next(prev => prev * 2)) console.log(i)
 // -1
 // -2
 // -4
@@ -79,7 +79,7 @@ for (i of l.take(10).from(-1).next(i => i * 2)) console.log(i)
 ```javascript
 const {from, take, next} = require("./select.js");
 
-for (const x of from(1).take(10).next(i => 2 * i)) console.log(x)
+for (const x of from(1).take(10).next(prev => 2 * prev)) console.log(x)
 // 1
 // 2
 // 4
@@ -91,7 +91,7 @@ for (const x of from(1).take(10).next(i => 2 * i)) console.log(x)
 // 256
 // 512
 
-for (const x of from(0).take(10).next(i => i % 2 === 0 ? i : 2 * i)) console.log(x)
+for (const x of from(0).take(10).next(prev => prev % 2 === 0 ? prev : 2 * prev)) console.log(x)
 // 0
 // 0
 // 0
@@ -103,5 +103,16 @@ for (const x of from(0).take(10).next(i => i % 2 === 0 ? i : 2 * i)) console.log
 // 0
 // 0
 
+for (const x of from(1).take(10).next(prev => prev % 2 === 0 ? prev : 2*prev + 1)) console.log(x)
+1
+3
+7
+15
+31
+63
+127
+255
+511
+1023
 
 ```
