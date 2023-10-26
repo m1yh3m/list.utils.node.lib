@@ -1,6 +1,6 @@
 {
     "name": "@m1yh3m/list.utils.node.lib",
-    "version": "2023.10.0-v5",
+    "version": "2023.10.26-v6",
     "description": "utilities for processing data",
     "main": "./lib.js",
     "scripts": {
